@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.427">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>finalproject</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="FinalProject_files/libs/clipboard/clipboard.min.js"></script>
+<script src="FinalProject_files/libs/quarto-html/quarto.js"></script>
+<script src="FinalProject_files/libs/quarto-html/popper.min.js"></script>
+<script src="FinalProject_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="FinalProject_files/libs/quarto-html/anchor.min.js"></script>
+<link href="FinalProject_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="FinalProject_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="FinalProject_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="FinalProject_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="FinalProject_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="final-project-100-points" class="level1">
+<h1>Final Project (100 points)</h1>
+<p>📣NOTE: You have the option of proposing your own project to Dr.&nbsp;Parlett as long as it uses Python, and Machine Learning Techniques related to or covered in the course.</p>
+<p>📣 PLEASE READ ALL THE DIRECTIONS BEFORE STARTING THE PROJECT, INCLUDING THE GROUP OPTION/CHECKLIST IF WORKING IN A GROUP.</p>
+<p><img src="./FinalProjectSchematic.png" width="800"></p>
+<section id="part-1-optional-do-not-need-to-turn-in" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-optional-do-not-need-to-turn-in">Part #1 (Optional; Do Not Need to Turn In)</h3>
+<p>Find a data set that’s interesting to you. Make sure it has at least 7 variables and at least 100 rows, and at least 4 continuous/interval columns. But the more the better. You may <strong>NOT</strong> use any of the datasets we’ve used in class (see <a href="https://github.com/cmparlettpelleriti/CPSC392ParlettPelleriti/tree/master/Data">here for reference</a>).</p>
+<p>Some places to find data:</p>
+<ul>
+<li>
+data.gov
+</li><li>
+kaggle.com/datasets
+</li><li>
+<a href="https://osf.io/">OSF (where scientists post their data)</a>
+</li><li>
+your own data! (e.g.&nbsp;fitbit, data from a video game you play, etc…)
+</li><li>
+https://github.com/BuzzFeedNews
+</li><li>
+http://archive.ics.uci.edu/ml/index.php
+</li><li>
+https://www.quandl.com/search
+</li><li>
+http://academictorrents.com/browse.php
+</li><li>
+your favorite sports teams!
+</li><li>
+<a href="https://baseballsavant.mlb.com/statcast_search">baseball data</a>
+</li><li>
+<a href="https://www.nutritionix.com/database">Fast Food and Food Data </a>
+</li><li>
+Data from your job/internship
+</li><li>
+Scrape twitter data
+</li><li>
+<a href="https://github.com/rfordatascience/tidytuesday/tree/master/data">Tidy Tuesday Data</a>
+</li><li>
+<a href="https://github.com/fivethirtyeight/data">fivethirtyeight</a>
+</li><li>
+<a href="https://developer.riotgames.com/"> League of Legends</a>
+</li></ul>
+</section>
+<section id="part-2" class="level3">
+<h3 class="anchored" data-anchor-id="part-2">Part 2</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Part #2 (Individual)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>(<strong>10 points</strong>; PDF) Pretend you’re a company who is interested in the dataset you chose. Come up with at <strong>least 7 questions</strong> that you want to answer based on the variables (at the top of this document, <strong>provide a short description of each of the variables in the model</strong>). Use <a href="https://github.com/cmparlettpelleriti/CPSC392ParlettPelleriti/blob/master/FinalProject/Example%20of%20Questions%20Format.pdf">THIS FORMAT</a>.</p>
+<p>These questions can be about the relationships between variables, or how well one thing can predict another, clustering…etc, but note that in your final project you must use at least:</p>
+<ul>
+<li><strong>1 supervised learning model</strong> (includes both regression and classification models)</li>
+<li><strong>1 clustering/reccomendation model</strong> (DBSCAN, HAC, K-Means, Gaussian Mixtures, or NearestNeighbors), and</li>
+<li><strong>1 instance of dimensionality reduction</strong> (PCA or LASSO)</li>
+</ul>
+<p>so keep that in mind when creating questions. You can use more than one of these for a single question (e.g.&nbsp;using PCA and then doing linear regression on the components).</p>
+<p>You will be graded on the quality of the questions. Questions should be interesting and complex (e.g.&nbsp;questions like “is this model more than 90% accurate?” should be expanded to something like “is this model accurate as measured by accuracy, examination of patterns in the confusion matrix and/or consistent accuracy across gender/race/income/education groups?”). Questions related to the same model/analysis should be included as 1 question (for example, if you build a model predicting cat weight from cat height, cat age, and cat diet, the question should be somthing like “which variables have the strongest impact on cat weight?” instead of having three separate questions “what is the impact of cat height on cat weight?”, “what is the impact of cat age on cat weight?”, and ““what is the impact of cat diet on cat weight?”)</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Part #2 (Group)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>(<strong>10 points</strong>; PDF) Pretend you’re a company who is interested in the dataset you chose. Come up with at <strong>5 questions per person</strong> that you want to answer based on the variables (at the top of this document, <strong>provide a short description of each of the variables in the model</strong>). Use <a href="https://github.com/cmparlettpelleriti/CPSC392ParlettPelleriti/blob/master/FinalProject/Example%20of%20Questions%20Format.pdf">THIS FORMAT</a>.</p>
+<p>These questions can be about the relationships between variables, or how well one thing can predict another, clustering…etc, but note that in your final project you must use at least:</p>
+<ul>
+<li><strong>1 supervised learning model</strong> (includes both regression and classification models)</li>
+<li><strong>1 clustering/reccomendation model</strong> (DBSCAN, HAC, K-Means, Gaussian Mixtures, or NearestNeighbors), and</li>
+<li><strong>1 instance of dimensionality reduction</strong> (PCA or LASSO)</li>
+</ul>
+<p>so keep that in mind when creating questions. You can use more than one of these for a single question (e.g.&nbsp;using PCA and then doing linear regression on the components).</p>
+<p>You will be graded on the quality of the questions. Questions should be interesting and complex (e.g.&nbsp;questions like “is this model more than 90% accurate?” should be expanded to something like “is this model accurate as measured by accuracy, examination of patterns in the confusion matrix and/or consistent accuracy across gender/race/income/education groups?”). Questions related to the same model/analysis should be included as 1 question (for example, if you build a model predicting cat weight from cat height, cat age, and cat diet, the question should be somthing like “which variables have the strongest impact on cat weight?” instead of having three separate questions “what is the impact of cat height on cat weight?”, “what is the impact of cat age on cat weight?”, and ““what is the impact of cat diet on cat weight?”)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-3" class="level3">
+<h3 class="anchored" data-anchor-id="part-3">Part 3</h3>
+<p>PLEASE NOTE THAT LATE DAYS CANNOT BE USED DURING FINALS WEEK <em>OR</em> WHEN THEY PREVENT YOUR PEERS FROM DOING PEER REVIEW ON TIME.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Part #3 (Individual)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>(<strong>27 points</strong>; PDF) Now put on your data scientist hat. Write an <strong>ORGANIZED analysis plan</strong> to answer <strong>3</strong> of the questions you came up with. Think about which of the questions need a predictive model, which need a clustering model, which need dimensionality reduction, and which maybe need just visualizations/summaries. (at the top of this document, <strong>provide a short description of each of the variables in the model</strong>)</p>
+<p>YOU MUST USE at least:</p>
+<ul>
+<li>1 supervised learning model</li>
+<li>1 clustering/reccomendation model (DBSCAN, HAC, K-Means, Gaussian Mixtures, or NearestNeighbors), and</li>
+<li>1 instance of dimensionality reduction. Dimensionality reduction includes LASSO and PCA.</li>
+</ul>
+<p><em>(two or more of these could be used to answer the same question)</em>.</p>
+<p>Each Question needs TWO ggplots to go with it. Please read the instructions for section <strong>5</strong> so you know what your analysis will need to include.</p>
+<p>Write up this plan as if you’re submitting it to a company to tell them what you’re planning to do. CLEARLY mark where each part is and answer each part separately using <a href="https://github.com/cmparlettpelleriti/CPSC392ParlettPelleriti/blob/master/FinalProject/Example%20of%20Analysis%20Plan%20Format.pdf">THIS FORMAT</a>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Part #3 (Group)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>(<strong>27 points</strong>; PDF) Now put on your data scientist hat. Write an <strong>ORGANIZED analysis plan</strong> to answer <strong>2 questions per person</strong> of the questions you came up with. Think about which of the questions need a predictive model, which need a clustering model, which need dimensionality reduction, and which maybe need just visualizations/summaries. (at the top of this document, <strong>provide a short description of each of the variables in the model</strong>)</p>
+<p>YOU MUST USE at least:</p>
+<ul>
+<li>1 supervised learning model</li>
+<li>1 clustering/reccomendation model (DBSCAN, HAC, K-Means, Gaussian Mixtures, or NearestNeighbors), and</li>
+<li>1 instance of dimensionality reduction. Dimensionality reduction includes LASSO and PCA.</li>
+</ul>
+<p><em>(two or more of these could be used to answer the same question)</em>.</p>
+<p>Each Question needs TWO ggplots to go with it. Please read the instructions for section <strong>5</strong> so you know what your analysis will need to include.</p>
+<p>Write up this plan as if you’re submitting it to a company to tell them what you’re planning to do. CLEARLY mark where each part is and answer each part separately using <a href="https://github.com/cmparlettpelleriti/CPSC392ParlettPelleriti/blob/master/FinalProject/Example%20of%20Analysis%20Plan%20Format.pdf">THIS FORMAT</a>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-4" class="level3">
+<h3 class="anchored" data-anchor-id="part-4">Part 4</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Part #4 (Individual and Group)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Peer review + write a critique of two person/group’s plan (~ 1 page, double spaced). You should answer:</p>
+<ul>
+<li>what does this plan do well?</li>
+<li>what could be improved (give specifics) and why?</li>
+<li>what are some (perhaps unavoidable) limitations of the data/analysis plan?</li>
+</ul>
+<p>To get credit, you must submit a comment (or link a document) with your feedback, AND fill out the Rubric.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-5" class="level3">
+<h3 class="anchored" data-anchor-id="part-5">Part 5</h3>
+<p>PLEASE NOTE THAT LATE DAYS CANNOT BE USED DURING FINALS WEEK <em>OR</em> WHEN THEY PREVENT YOUR PEERS FROM DOING PEER REVIEW ON TIME.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Part #5 (Individual)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>(<strong>38 points</strong>; PDF + PDF of Jupyter Notebook) <strong>Perform the planned analyses for your 3 questions</strong> , <strong>make the graphs in a python notebook</strong>, and write a <strong>technical report using Quarto or Google Docs Template</strong>. For each of your 3 questions make sure you have:</p>
+<ul>
+<li><ol type="a">
+<li><b> the analysis code (py or ipynb)</b></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li><b> a well labeled PDF report (using this <a href="https://docs.google.com/document/d/1pXP4GDeBJ_zfv2dG06zrzr2kw-9aU_2zSyJQi69ahdA/edit?usp=sharing">Google Doc Template</a> with explicit answer to the question with detailed responses of how you came to this answer and the answer’s importance.</b> This should be targeted at an audience that are NOT familiar with Data Science (e.g.&nbsp;pretend you’re presenting these results to shareholders/your boss), but should include enough detail to understand why the analysis supports the question.</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li><b>the PDF report should also have two ggplot data visualizations + captions</b> (graphs will be graded on how efficient and clear they are, so make sure you make good aesthetic choices that help emphasize your message).</li>
+</ol></li>
+</ul>
+<p>(be sure to note in the report if there were any changes to your analysis plan since part #3 and <strong>why</strong>)</p>
+<p>Answers should be clear, concise, and complete. You will be graded on your code, the clarity of your responses, and the correctness of your methods. In your code, you must clearly label each question and the analyses that apply to it using Markdown Cells.Don’t forget to turn in a README with this part.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Part #5 (Group)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>(<strong>38 points</strong>; PDF + PDF of Jupyter Notebook) <strong>Perform the planned analyses for your questions</strong> , <strong>make the graphs in a python notebook</strong>, and write a <strong>technical report using Quarto or Google Docs Template</strong>. For each of your questions (2 per group member) make sure you have:</p>
+<ul>
+<li><ol type="a">
+<li><b> the analysis code (py or ipynb).</b></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li><b> a well labeled PDF report (using this <a href="https://docs.google.com/document/d/1pXP4GDeBJ_zfv2dG06zrzr2kw-9aU_2zSyJQi69ahdA/edit?usp=sharing">Google Doc Template</a> with explicit answer to the question with detailed responses of how you came to this answer and the answer’s importance.</b> This should be targeted at an audience that are NOT familiar with Data Science (e.g.&nbsp;pretend you’re presenting these results to shareholders/your boss), but should include enough detail to understand why the analysis supports the question.</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li><b>the PDF report should also have two ggplot data visualizations + captions</b> (graphs will be graded on how efficient and clear they are, so make sure you make good aesthetic choices that help emphasize your message).</li>
+</ol></li>
+</ul>
+<p>(be sure to note in the report if there were any changes to your analysis plan since part #3 and <strong>why</strong>)</p>
+<p>Answers should be clear, concise, and complete. You will be graded on your code, the clarity of your responses, and the correctness of your methods. In your code, you must clearly label each question and the analyses that apply to it using Markdown Cells.Don’t forget to turn in a README with this part which should INCLUDE a statement from your group about what each person did.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-6" class="level3">
+<h3 class="anchored" data-anchor-id="part-6">Part 6</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Part #6 (Individual and Group)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>📣 PEOPLE IN GROUPS SHOULD EACH MAKE A SEPARATE VIDEO, YOU CAN SPLIT UP YOUR QUESTIONS/INFO HOWEVER YOU WANT BETWEEN GROUP MEMBERS.</p>
+<p>📣 GROUP MEMBERS SHOULD EACH MAKE THEIR OWN VIDEO/PRESENTATION (each 5-9 minutes).</p>
+<p>(<strong>8 points</strong>; Video link) <strong>Prepare a short presentation of the results</strong> (powerpoint, prezi, keynote…etc, DO NOT just scroll through your notebook.). Make a short (5-9 minute, not under or over) <strong>video presentation</strong> explaining what you found. Upload it to youtube or similar site (you can put your video as Unlisted if you don’t want anyone else to see). It is expected that you are the one presenting your results.</p>
+<p>I recommend OBS Streamlabs or Zoom if you want to record your screen (with the presentation/data) and yourself presenting at one time. Or get someone to film you presenting it on a screen (or if needed print our your slides and hold them up!). Or if you’re on a Mac you can use QuickTime to record your screen while you present.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-7" class="level3">
+<h3 class="anchored" data-anchor-id="part-7">Part 7</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Part #7 (Individual and Group)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>(<strong>12 points</strong>; During Finals Week) Watch other students’ video presentations, fill out the feedback form Dr.&nbsp;Parlett gives you.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="checklists" class="level2">
+<h2 class="anchored" data-anchor-id="checklists">Checklists</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Individual Checklist
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To review, throughout the project you’ll need to submit:</p>
+<ol type="1">
+<li>the <strong>name/a link to the data set</strong> you’re planning to use (you don’t have to do this, but it saves you time/effort, in case your dataset won’t work out)</li>
+<li>A <strong>PDF or text submission</strong> with your questions.</li>
+<li>A <strong>PDF</strong> with your analysis plan.</li>
+<li>A <strong>text submission or PDF</strong> on Canvas with your critique of <em>another</em> students plan.</li>
+<li>A <strong>py/ipynb</strong> of your python code and a <strong>PDF Report</strong>. Please get rid of extra analyses/code that you did not end up using. You must clearly indicate where each question is being answered. Also include a <strong>README</strong>.</li>
+<li>A <strong>link</strong> to a short video presentation (do not send the video directly).</li>
+<li>A <strong>Feedback Form</strong> given to you by Dr.&nbsp;Parlett.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Group Checklist
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="group-option" class="level2">
+<h2 class="anchored" data-anchor-id="group-option">Group Option</h2>
+<p>Groups are optional (you may work alone) but if you choose to work in a group, READ THE MODIFICATIONS below, and know that working in a group is agreeing to 1) follow these modifications and 2) be graded together with your group members (you will not receive separate grades except for completing the peer review).</p>
+<p>If you’d like to work in a group (up to 3) then:</p>
+<ul>
+<li>You must tell me your group members and their sections by via SLACK or Email before your Questions (Part I #2) are due.</li>
+<li>(🧑‍🤝‍🧑 <em>Together</em>) For Part I, #2 You need to come up with 5 questions <strong>per member</strong>.</li>
+<li>(🧑‍🤝‍🧑 <em>Together</em>)For Part I, #3 You should come up with the plan together and EACH submit a copy of the same plan. You need to answer 2 questions <strong>per member</strong> (so a group of 2 would need to answer 4 questions, a group of 3 would need to answer 6).</li>
+<li>(<em>Separate</em>) For Part I, #4 You should write your critiques separately.</li>
+<li>(🧑‍🤝‍🧑 <em>Together</em>) For Part II, #5 You should work on it together. Again, you need to answer 2 questions <strong>per member</strong> (so a group of 2 would need to answer 4 questions, a group of 3 would need to answer 6). You must ALSO submit a joined statement (as a PDF) describing what each member did.</li>
+<li>(<em>Separate</em>) For Part II, #6 You each need to make your OWN video presenting on 2 of the questions each, however you can collaborate on the presentation materials (the slides..etc). Each of you should submit a separate video.</li>
+<li>(<em>Separate</em>) For Part II #7 You need to each do separate peer reviews.</li>
+</ul>
+</section>
+<section id="group-option-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="group-option-checklist">Group Option Checklist</h2>
+<p>To review, throughout the project you’ll need to submit:</p>
+<ol type="1">
+<li>the <strong>name/a link to the data set</strong> you’re planning to use (you don’t have to do this, but it saves you time/effort, in case your dataset won’t work out), and <strong>the names and section #s of who is in your group</strong> (you do need to do this)</li>
+<li>A <strong>PDF or text submission</strong> with your questions.</li>
+<li>A <strong>PDF</strong> with your analysis plan.</li>
+<li>A <strong>text submission or PDF</strong> on Canvas with your critique of <em>another</em> students plan (EACH group member will review a separate students/group).</li>
+<li>A <strong>py/ipynb</strong> of your python notebooks and a <strong>PDF Report</strong>. Please get rid of extra analyses/code that you did not end up using. You must clearly indicate where each question is being answered using Titles in Markdown. Also include a <strong>README</strong>, and <strong>joint statement of who did what</strong>.</li>
+<li>A <strong>link</strong> to a short video presentation (do not send the video directly). Each group member does their own video.</li>
+<li>A <strong>Feedback Form</strong> given to you by Dr.&nbsp;Parlett. Each group member will review separate students/groups.</li>
+</ol>
+</section>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
