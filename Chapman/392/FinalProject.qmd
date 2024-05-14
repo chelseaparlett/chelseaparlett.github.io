@@ -138,7 +138,7 @@ PLEASE NOTE THAT LATE DAYS CANNOT BE USED DURING FINALS WEEK *OR* WHEN THEY PREV
 ::: {.callout-note collapse="true"}
 
 ### Part #5 (Individual)
-(**38 points**;  PDF + PDF of Jupyter Notebook) **Perform the planned analyses for your 3 questions** , **make the graphs in a python notebook**, and write a **technical report using Quarto or Google Docs Template**. For each of your 3 questions make sure you have:
+(**38 points**;  PDF Report + Code File) **Perform the planned analyses for your 3 questions** , **make the graphs in a python notebook**, and write a **technical report using Quarto or Google Docs Template**. For each of your 3 questions make sure you have:
 
 
 - a) <b> the analysis code (py or ipynb)</b>
@@ -155,7 +155,7 @@ Answers should be clear, concise, and complete. You will be graded on your code,
 ::: {.callout-tip collapse="true"}
 ### Part #5 (Group)
 
-(**38 points**;  PDF + PDF of Jupyter Notebook) **Perform the planned analyses for your questions** , **make the graphs in a python notebook**, and write a **technical report using Quarto or Google Docs Template**. For each of your questions (2 per group member) make sure you have:
+(**38 points**;  PDF Report + Code File) **Perform the planned analyses for your questions** , **make the graphs in a python notebook**, and write a **technical report using Quarto or Google Docs Template**. For each of your questions (2 per group member) make sure you have:
 
 
 - a) <b> the analysis code (py or ipynb).</b>
@@ -218,7 +218,7 @@ If you'd like to work in a group (up to 3) then:
 - (🧑‍🤝‍🧑 *Together*) For Part I, #2 You need to come up with 5 questions **per member**.
 - (🧑‍🤝‍🧑 *Together*)For Part I, #3 You should come up with the plan together and EACH submit a copy of the same plan. You need to answer 2 questions **per member** (so a group of 2 would need to answer 4 questions, a group of 3 would need to answer 6).
 - (*Separate*) For Part I, #4 You should write your critiques separately.
-- (🧑‍🤝‍🧑 *Together*) For Part II, #5 You should work on it together. Again, you need to answer 2 questions **per member** (so a group of 2 would need to answer 4 questions, a group of 3 would need to answer 6). You must ALSO submit a joined statement (as a PDF) describing what each member did. 
+- (🧑‍🤝‍🧑 *Together*) For Part II, #5 You should work on it together. Again, you need to answer 2 questions **per member** (so a group of 2 would need to answer 4 questions, a group of 3 would need to answer 6). You must ALSO submit a joined statement (in your readme) describing what each member did. 
 - (*Separate*) For Part II, #6 You each need to make your OWN video presenting on 2 of the questions each, however you can collaborate on the presentation materials (the slides..etc). Each of you should submit a separate video.
 - (*Separate*) For Part II #7 You need to each do separate peer reviews.
 
