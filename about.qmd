@@ -1,0 +1,19 @@
+---
+title: "About"
+image: profile.svg
+image-shape: round
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/your-profile
+    - icon: github
+      text: GitHub
+      href: https://github.com/your-username
+    - icon: rss
+      text: RSS
+      href: index.xml
+---
+
+A couple of sentences about who you are and what this blog is about. Replace this paragraph (and the photo, links, and title above) with your own.

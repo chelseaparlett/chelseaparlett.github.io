@@ -1,0 +1,50 @@
+project:
+  type: website
+  output-dir: docs
+
+# Cache R/Python code execution results so re-renders (and CI builds without
+# R/Python installed) reuse the cached output unless the source file changes.
+# See README for details.
+execute:
+  freeze: auto
+
+website:
+  title: "Notes on Causal Inference"        # <- change to your blog's name
+  description: "Causal inference, Bayesian methods, and other statistical adventures"
+  site-url: "https://your-username.github.io/your-repo/"  # <- update once you know your repo name
+  navbar:
+    left:
+      - href: index.qmd
+        text: Posts
+      - href: about.qmd
+        text: About
+    right:
+      - icon: github
+        href: https://github.com/your-username
+        aria-label: GitHub
+      - icon: rss
+        href: index.xml
+        aria-label: RSS
+  search: true
+  page-footer:
+    left: "&copy; {{< now year >}} Your Name"
+    right:
+      - icon: rss
+        href: index.xml
+        aria-label: RSS
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+    code-fold: true
+    code-tools: true
+    code-link: true
+    highlight-style: github
+    grid:
+      body-width: 850px
+      sidebar-width: 200px
+      margin-width: 200px
