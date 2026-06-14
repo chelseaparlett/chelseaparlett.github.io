@@ -1,13 +1,11 @@
 ---
-title: "Welcome (and a Quick Word on Counterfactuals)"
-description: "Kicking off this blog with a short note on why the counterfactual is always estimated, never observed."
+title: "Welcome "
+description: "Test."
 date: 2026-06-13
-categories: [causal-inference, meta]
+categories: [test]
 ---
 
-This is the first post on the blog. Every new post lives in its own folder under `posts/` as an `index.qmd` file -- delete this one once you've got the hang of things, or keep it around as a template.
-
-To make the code-execution side of things concrete, here's a small R/ggplot2 example of a theme that comes up a lot in causal inference: for any single unit, we only ever observe *one* of the potential outcomes (treated or untreated). The other one -- the counterfactual -- has to be estimated.
+Test
 
 ```{r}
 #| label: fig-counterfactual
@@ -43,10 +41,4 @@ ggplot(df, aes(time, outcome, color = series, linetype = series)) +
   theme(legend.position = "bottom")
 ```
 
-The dotted line marks the point where treatment begins. Everything to the right of it on the grey line didn't happen -- it's a model's best guess at what *would* have happened. Useful framing to keep handy whenever someone describes a counterfactual as something you can simply "look up."
-
-A few notes on how this project is set up, for future-you:
-
-- `execute: freeze: auto` in `_quarto.yml` means Quarto caches the result of running this code chunk. Re-renders only re-run it if this file changes, and the cached result is checked into `_freeze/` so CI can build the site without R installed.
-- `code-fold: true` (set globally) is why the code above is collapsed by default -- click to expand it.
-- Add more posts by creating a new folder under `posts/` with its own `index.qmd`.
+Test
