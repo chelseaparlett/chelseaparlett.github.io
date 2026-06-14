@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "A couple of sentences about who you are and what this blog is about. Replace this paragraph (and the photo, links, and title above) with your own."
+  },
+  {
+    "objectID": "posts/2026-06-13-welcome/index.html",
+    "href": "posts/2026-06-13-welcome/index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Test\n\n\nCode\nlibrary(ggplot2)\n\nset.seed(42)\n\ndf &lt;- data.frame(\n  time = rep(1:10, 2),\n  outcome = c(\n    1:5 + rnorm(5, 0, 0.15), 6.8, 7.6, 8.5, 9.3, 10.2,           # observed (treated)\n    1:5 + rnorm(5, 0, 0.15), 5.4, 5.8, 6.1, 6.5, 6.9             # counterfactual (estimated)\n  ),\n  series = rep(c(\"Observed (treated)\", \"Counterfactual (estimated)\"), each = 10)\n)\n\nggplot(df, aes(time, outcome, color = series, linetype = series)) +\n  geom_line(linewidth = 1) +\n  geom_vline(xintercept = 5, linetype = \"dotted\", color = \"grey60\") +\n  scale_color_manual(values = c(\"#3a6b8a\", \"#b0bcc4\")) +\n  labs(\n    x = \"Time\",\n    y = \"Outcome\",\n    color = NULL,\n    linetype = NULL,\n    title = \"The counterfactual is estimated, never observed\"\n  ) +\n  theme_minimal(base_size = 13) +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\nFigure 1: Observed outcome vs. an estimated counterfactual for a single unit\n\n\n\n\n\nTest"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Posts",
+    "section": "",
+    "text": "Welcome\n\n\n\ntest\n\n\n\nTest.\n\n\n\n\n\nJun 13, 2026\n\n\nChelsea Parlett\n\n\n\n\n\nNo matching items"
+  }
+]
