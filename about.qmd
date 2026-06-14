@@ -1,16 +1,16 @@
 ---
 title: "About"
-image: profile.svg
+image: profile.png
 image-shape: round
 about:
   template: jolla
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/in/your-profile
+      href: https://www.linkedin.com/in/chelseaparlettpelleriti/
     - icon: github
       text: GitHub
-      href: https://github.com/your-username
+      href: https://github.com/chelseparlett
     - icon: rss
       text: RSS
       href: index.xml

@@ -9,9 +9,9 @@ execute:
   freeze: auto
 
 website:
-  title: "Notes on Causal Inference"        # <- change to your blog's name
-  description: "Causal inference, Bayesian methods, and other statistical adventures"
-  site-url: "https://your-username.github.io/your-repo/"  # <- update once you know your repo name
+  title: "Chelsea Parlett's Blog"        # <- change to your blog's name
+  description: "Statistics, Causal Inference, Marketing Measurement, whatever I feel like"
+  site-url: "https://chelseaparlett.github.io/your-repo/"  # <- update once you know your repo name
   navbar:
     left:
       - href: index.qmd
@@ -20,7 +20,7 @@ website:
         text: About
     right:
       - icon: github
-        href: https://github.com/your-username
+        href: https://github.com/chelseaparlett
         aria-label: GitHub
       - icon: rss
         href: index.xml
