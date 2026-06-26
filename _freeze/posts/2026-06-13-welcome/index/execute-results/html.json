@@ -1,0 +1,17 @@
+{
+  "hash": "8c29283c9ef1d84cacf53dd342800d22",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Welcome \"\ndescription: \"Test.\"\ndate: 2026-06-13\ncategories: [test]\n---\n\nTest\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\n\nset.seed(42)\n\ndf <- data.frame(\n  time = rep(1:10, 2),\n  outcome = c(\n    1:5 + rnorm(5, 0, 0.15), 6.8, 7.6, 8.5, 9.3, 10.2,           # observed (treated)\n    1:5 + rnorm(5, 0, 0.15), 5.4, 5.8, 6.1, 6.5, 6.9             # counterfactual (estimated)\n  ),\n  series = rep(c(\"Observed (treated)\", \"Counterfactual (estimated)\"), each = 10)\n)\n\nggplot(df, aes(time, outcome, color = series, linetype = series)) +\n  geom_line(linewidth = 1) +\n  geom_vline(xintercept = 5, linetype = \"dotted\", color = \"grey60\") +\n  scale_color_manual(values = c(\"#3a6b8a\", \"#b0bcc4\")) +\n  labs(\n    x = \"Time\",\n    y = \"Outcome\",\n    color = NULL,\n    linetype = NULL,\n    title = \"The counterfactual is estimated, never observed\"\n  ) +\n  theme_minimal(base_size = 13) +\n  theme(legend.position = \"bottom\")\n```\n\n::: {.cell-output-display}\n![Observed outcome vs. an estimated counterfactual for a single unit](index_files/figure-html/fig-counterfactual-1.png){#fig-counterfactual width=576}\n:::\n:::\n\n\nTest\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
