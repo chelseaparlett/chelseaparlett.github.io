@@ -14,9 +14,9 @@ ROI is intuitive to think about: it's a revenue multiplier on spend (e.g. you'll
 
 :::: {style="width: 60%; margin: 0 auto;"}
 ::: {layout="[30,30]"}
-![](costperegg.png){width="423"}
+![an egg with a price tag](costperegg.png){width="423"}
 
-![](costperacquisition.png){width="394"}
+![an acquisition with a price tag](costperacquisition.png){width="394"}
 :::
 ::::
 

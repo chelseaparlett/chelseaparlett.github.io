@@ -30,11 +30,21 @@
 <div style="width: 60%; margin: 0 auto;">
 <div class="quarto-layout-panel" data-layout="[30,30]">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="https://chelseaparlett.github.io/your-repo/posts/2026-06-13-cpa/costperegg.png" class="img-fluid" width="423"></p>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://chelseaparlett.github.io/your-repo/posts/2026-06-13-cpa/costperegg.png" class="img-fluid figure-img" width="423"></p>
+<figcaption>an egg with a price tag</figcaption>
+</figure>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="https://chelseaparlett.github.io/your-repo/posts/2026-06-13-cpa/costperacquisition.png" class="img-fluid" width="394"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://chelseaparlett.github.io/your-repo/posts/2026-06-13-cpa/costperacquisition.png" class="img-fluid figure-img" width="394"></p>
+<figcaption>an acquisition with a price tag</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </div>
