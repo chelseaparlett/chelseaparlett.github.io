@@ -147,7 +147,7 @@ font-style: inherit;">1000</span>, p),</span>
 background-color: null;
 font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"k (number of successes)"</span>,</span>
+font-style: inherit;">"number of conversions"</span>,</span>
 <span id="cb1-16">      <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
@@ -409,7 +409,7 @@ font-style: inherit;">1000</span>, p),</span>
 background-color: null;
 font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"k (number of successes)"</span>,</span>
+font-style: inherit;">"number of conversions"</span>,</span>
 <span id="cb2-18">      <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
@@ -559,6 +559,32 @@ AI disclosure
   <category>marketing</category>
   <category>measurement</category>
   <guid>https://chelseaparlett.github.io/your-repo/posts/2026-06-13-cpa/</guid>
+  <pubDate>Sat, 13 Jun 2026 07:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Welcome</title>
+  <dc:creator>Chelsea Parlett</dc:creator>
+  <link>https://chelseaparlett.github.io/your-repo/posts/2026-06-26-/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="welcome" class="level1">
+<h1>Welcome</h1>
+<p>I’m Chelsea Parlett, a statistician (currently working in marketing measurement), former professor who loves making statistics approachable and fun for everyone.</p>
+<p><img src="https://chelseaparlett.github.io/your-repo/posts/2026-06-26-/nova.png" class="img-fluid"></p>
+<p>Before graduate school, I was in psychology research where I learned the hard way hos to make small-n experiments work. My corgi Nova is named after an ANOVA (Analysis of Variance) as an homage to the models that made me fall in love with statistics, enough to pivot my entire career and get a Ph.D.&nbsp;in Data Science.</p>
+
+
+<!-- -->
+
+</section>
+
+ ]]></description>
+  <category>welcome</category>
+  <guid>https://chelseaparlett.github.io/your-repo/posts/2026-06-26-/</guid>
   <pubDate>Sat, 13 Jun 2026 07:00:00 GMT</pubDate>
 </item>
 <item>

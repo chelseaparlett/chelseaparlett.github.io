@@ -1,0 +1,14 @@
+---
+title: "Welcome "
+description: "I made a new blog!"
+date: 2026-06-13
+categories: [welcome]
+---
+
+# Welcome
+I'm Chelsea Parlett, a statistician (currently working in marketing measurement), former professor who loves making statistics approachable and fun for everyone.
+
+
+![](nova.png)
+
+Before graduate school, I was in psychology research where I learned the hard way hos to make small-n experiments work. My corgi Nova is named after an ANOVA (Analysis of Variance) as an homage to the models that made me fall in love with statistics, enough to pivot my entire career and get a Ph.D. in Data Science.

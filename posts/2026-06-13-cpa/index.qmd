@@ -49,7 +49,7 @@ plot_binomial <- function(n, p, min, max) {
     labs(
       title = "Expected Conversions",
       subtitle = sprintf("(total exposures = %.0fK, p(conversion) = %.6f)", n/1000, p),
-      x = "k (number of successes)",
+      x = "number of conversions",
       y = "P(X = k)"
     ) +
     theme_minimal(base_size = 13) +
@@ -95,7 +95,7 @@ plot_binomial <- function(n, p, min, max, hl = 3) {
     labs(
       title = "Expected Conversions",
       subtitle = sprintf("(total exposures = %.1fK, p(conversion) = %.6f)", n/1000, p),
-      x = "k (number of successes)",
+      x = "number of conversions",
       y = "P(X = k)"
     ) +
     theme_minimal(base_size = 13) +
