@@ -12,6 +12,546 @@
 <generator>quarto-1.7.33</generator>
 <lastBuildDate>Sat, 13 Jun 2026 07:00:00 GMT</lastBuildDate>
 <item>
+  <title>CPAs are rates not costs</title>
+  <dc:creator>Chelsea Parlett</dc:creator>
+  <link>https://chelseaparlett.github.io/your-repo/posts/2026-06-13-cpa/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>In marketing analytics there are two numbers that matter:</p>
+<ul>
+<li><strong>ROI</strong> (Return on Investment)</li>
+<li><strong>CPA</strong> (Cost per Acquisition)</li>
+</ul>
+<p>ROI is intuitive to think about: it’s a revenue multiplier on spend (e.g.&nbsp;you’ll spend <code>x</code> you’ll get 1.2<code>x</code> back), CPA is not. The way we talk about CPA in marketing is as a cost: a price-tag on a conversion. If we pay the cost, we’ll get a conversion, just like if we pay $3 we can get an egg at Trader Joe’s.</p>
+<div style="width: 60%; margin: 0 auto;">
+<div class="quarto-layout-panel" data-layout="[30,30]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://chelseaparlett.github.io/your-repo/posts/2026-06-13-cpa/costperegg.png" class="img-fluid" width="423"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://chelseaparlett.github.io/your-repo/posts/2026-06-13-cpa/costperacquisition.png" class="img-fluid" width="394"></p>
+</div>
+</div>
+</div>
+</div>
+<p>But CPA is really a <em>rate</em>. How many exposures do we need to pay for before we get a conversion? Let’s simplify: an exposure costs $0.10. A CPA of $3 means that on average it took 300 exposures before we got a conversion.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://chelseaparlett.github.io/your-repo/posts/2026-06-13-cpa/costperacquisitionrate.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="328"></p>
+</figure>
+</div>
+<p>Say we spent $1,000 per day for 30 days and saw 0 conversions. When we think about CPA as a <strong>cost</strong> we might see the $1,000 in spend per day and 0 conversions and conclude that our CPA is probably higher than $100. It’s like the world’s worst store, we walked up to the till each day, paid $1,000, hoped that was more than the price-tag on a conversion, and left disappointed. But, when we think about CPA as a <strong>rate</strong> we see $1,000 worth off exposures <em>every day</em> over 30 days with 0 conversions, a <em>much</em> bleaker picture.</p>
+<p>Framed as a rate, what we saw was 300,000 exposures ($30,000) with 0 conversions. The cost per conversion is likely more than <em>$30,000</em> (not $1,000). If the CPA was $1,000 we should see a conversion every 10,000 exposures or so, but across 300,000 exposures we saw 0.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(patchwork)</span>
+<span id="cb1-3"></span>
+<span id="cb1-4">plot_binomial <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(n, p, min, max) {</span>
+<span id="cb1-5">  k <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>n</span>
+<span id="cb1-6">  prob <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dbinom</span>(k, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob =</span> p)</span>
+<span id="cb1-7">  </span>
+<span id="cb1-8">  df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">k =</span> k, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob =</span> prob)</span>
+<span id="cb1-9">  </span>
+<span id="cb1-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(df, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> k, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> prob)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb1-11">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_histogram</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">stat =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"identity"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#56B4E9"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb1-12">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb1-13">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Expected Conversions"</span>,</span>
+<span id="cb1-14">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sprintf</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"(total exposures = %.0fK, p(conversion) = %.6f)"</span>, n<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000</span>, p),</span>
+<span id="cb1-15">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"k (number of successes)"</span>,</span>
+<span id="cb1-16">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"P(X = k)"</span></span>
+<span id="cb1-17">    ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb1-18">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">base_size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">13</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb1-19">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb1-20">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.major =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(),</span>
+<span id="cb1-21">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.minor   =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(),</span>
+<span id="cb1-22">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.title         =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>),</span>
+<span id="cb1-23">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.subtitle      =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"grey50"</span>),</span>
+<span id="cb1-24">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.text.y =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(),</span>
+<span id="cb1-25">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.ticks.y =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>()</span>
+<span id="cb1-26">    ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb1-27">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xlim</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(min,max))</span>
+<span id="cb1-28">}</span>
+<span id="cb1-29"></span>
+<span id="cb1-30"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># example call</span></span>
+<span id="cb1-31">x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot_binomial</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">300000</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">p =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">240</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">360</span>)</span>
+<span id="cb1-32">y <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot_binomial</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">300000</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">p =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">300000</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)</span>
+<span id="cb1-33">x<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>y</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-binomial-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-binomial-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://chelseaparlett.github.io/your-repo/posts/2026-06-13-cpa/index_files/figure-html/fig-binomial-1-1.png" class="img-fluid figure-img" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binomial-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Expected conversions over 30 days of exposures (10,000 per day: $1,000 worth at $0.10 each)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>This framing also explains why we can have a CPA of $100 and still see 3 conversions on $150 of spend (we just got lucky).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(patchwork)</span>
+<span id="cb2-3"></span>
+<span id="cb2-4">plot_binomial <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(n, p, min, max, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">hl =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>) {</span>
+<span id="cb2-5">  k <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>n</span>
+<span id="cb2-6">  prob <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dbinom</span>(k, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob =</span> p)</span>
+<span id="cb2-7">  </span>
+<span id="cb2-8">  df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">k =</span> k, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob =</span> prob)</span>
+<span id="cb2-9">  df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>highlight <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(k <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> hl, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"yes"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"no"</span>)</span>
+<span id="cb2-10">  </span>
+<span id="cb2-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(df, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> k, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> prob, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> highlight)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-12">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_histogram</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">stat =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"identity"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-13">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_fill_manual</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">values =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"yes"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#009E73"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"no"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#56B4E9"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">guide =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"none"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-14">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb2-15">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Expected Conversions"</span>,</span>
+<span id="cb2-16">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sprintf</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"(total exposures = %.1fK, p(conversion) = %.6f)"</span>, n<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000</span>, p),</span>
+<span id="cb2-17">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"k (number of successes)"</span>,</span>
+<span id="cb2-18">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"P(X = k)"</span></span>
+<span id="cb2-19">    ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-20">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">base_size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">13</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-21">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb2-22">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.major =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(),</span>
+<span id="cb2-23">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">panel.grid.minor   =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(),</span>
+<span id="cb2-24">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.title         =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>),</span>
+<span id="cb2-25">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.subtitle      =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"grey50"</span>),</span>
+<span id="cb2-26">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.text.y =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>(),</span>
+<span id="cb2-27">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.ticks.y =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_blank</span>()</span>
+<span id="cb2-28">    ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> </span>
+<span id="cb2-29">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xlim</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(min,max))</span>
+<span id="cb2-30">}</span>
+<span id="cb2-31"></span>
+<span id="cb2-32"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># example call</span></span>
+<span id="cb2-33">x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot_binomial</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">150</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 0.10 per conversion</span></span>
+<span id="cb2-34">                   <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">p =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>), <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># expect conversion every 100/0.1 exposures</span></span>
+<span id="cb2-35">                  <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)</span>
+<span id="cb2-36">x</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-binomial-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-binomial-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://chelseaparlett.github.io/your-repo/posts/2026-06-13-cpa/index_files/figure-html/fig-binomial-2-1.png" class="img-fluid figure-img" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binomial-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Expected conversions for $150 of spend with a true CPA of $100
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Marketing spend is more complicated than this. We don’t always pay a flat rate for exposures and exposures are not the same quality as we scale spend, but the framing stands. We should encourage people to talk about CPAs as <strong>rates</strong>, not as <strong>costs</strong> because it makes interpreting CPAs more intuitive. It also highlights the mechanisms for improving CPA:</p>
+<ul>
+<li>improve the <em>rate</em> of conversions (e.g.&nbsp;better targeting, quality creative)</li>
+<li>reduce the <em>cost</em> of an exposure (idk, bully Meta a little?)</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="AI disclosure">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+AI disclosure
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>🤖 <strong>Used AI for:</strong> AI used for blog template and plotting code.</p>
+<p><strong>🧍🏻‍♀️Did not use AI for:</strong> ideas and written blog content.</p>
+</div>
+</div>
+
+
+<!-- -->
+
+
+ ]]></description>
+  <category>marketing</category>
+  <category>measurement</category>
+  <guid>https://chelseaparlett.github.io/your-repo/posts/2026-06-13-cpa/</guid>
+  <pubDate>Sat, 13 Jun 2026 07:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Welcome</title>
   <dc:creator>Chelsea Parlett</dc:creator>
   <link>https://chelseaparlett.github.io/your-repo/posts/2026-06-13-welcome/</link>
@@ -252,7 +792,7 @@ Figure&nbsp;1: Observed outcome vs.&nbsp;an estimated counterfactual for a singl
 
 
  ]]></description>
-  <category>test</category>
+  <category>welcome</category>
   <guid>https://chelseaparlett.github.io/your-repo/posts/2026-06-13-welcome/</guid>
   <pubDate>Sat, 13 Jun 2026 07:00:00 GMT</pubDate>
 </item>
