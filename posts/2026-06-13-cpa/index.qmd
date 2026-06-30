@@ -65,7 +65,7 @@ plot_binomial <- function(n, p, min, max) {
 }
 
 # example call
-x <- plot_binomial(n = 300000, p = 1/10000,24,36)
+x <- plot_binomial(n = 300000, p = 1/10000,20,40)
 y <- plot_binomial(n = 300000, p = 1/300000,0,10)
 x/y
 ```
