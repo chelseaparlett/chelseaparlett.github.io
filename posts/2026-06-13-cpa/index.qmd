@@ -20,7 +20,7 @@ ROI is intuitive to think about: it's a revenue multiplier on spend (e.g. you'll
 :::
 ::::
 
-But CPA is really a *rate*. How many exposures do we need to pay for before we get a conversion? Let's simplify: an exposure costs \$0.10. A CPA of \$3 means that on average it took 300 exposures before we got a conversion.
+But CPA is really a *rate*. How many exposures do we need to pay for before we get a conversion? Let's simplify: an exposure costs \$0.10. A CPA of \$3 means that on average it took 30 exposures before we got a conversion.
 
 ![](costperacquisitionrate.png){fig-align="center" width="328"}
 
