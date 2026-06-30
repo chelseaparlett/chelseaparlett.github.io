@@ -45,7 +45,7 @@ plot_binomial <- function(n, p, min, max) {
   df <- data.frame(k = k, prob = prob)
   
   ggplot(df, aes(x = k, y = prob)) +
-    geom_histogram(stat = "identity", fill = "#56B4E9") +
+    geom_col(fill = "#56B4E9") +
     labs(
       title = "Expected Conversions",
       subtitle = sprintf("(total exposures = %.0fK, p(conversion) = %.6f)", n/1000, p),
@@ -90,7 +90,7 @@ plot_binomial <- function(n, p, min, max, hl = 3) {
   df$highlight <- ifelse(k == hl, "yes", "no")
   
   ggplot(df, aes(x = k, y = prob, fill = highlight)) +
-    geom_histogram(stat = "identity") +
+    geom_col() +
       scale_fill_manual(values = c("yes" = "#009E73", "no" = "#56B4E9"), guide = "none") +
     labs(
       title = "Expected Conversions",

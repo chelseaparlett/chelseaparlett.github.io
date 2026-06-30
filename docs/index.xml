@@ -113,11 +113,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span id="cb1-11">    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">geom_histogram</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">stat =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"identity"</span>, <span class="at" style="color: #657422;
+font-style: inherit;">geom_col</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -354,11 +350,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span id="cb2-12">    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">geom_histogram</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">stat =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"identity"</span>) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">geom_col</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
 <span id="cb2-13">      <span class="fu" style="color: #4758AB;
