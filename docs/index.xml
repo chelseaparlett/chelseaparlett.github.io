@@ -207,9 +207,11 @@ background-color: null;
 font-style: inherit;">+</span> </span>
 <span id="cb1-27">    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">xlim</span>(<span class="fu" style="color: #4758AB;
+font-style: inherit;">coord_cartesian</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">c</span>(min,max))</span>
+font-style: inherit;">xlim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(min, max))</span>
 <span id="cb1-28">}</span>
 <span id="cb1-29"></span>
 <span id="cb1-30"><span class="co" style="color: #5E5E5E;
@@ -465,9 +467,11 @@ background-color: null;
 font-style: inherit;">+</span> </span>
 <span id="cb2-29">    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">xlim</span>(<span class="fu" style="color: #4758AB;
+font-style: inherit;">coord_cartesian</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">c</span>(min,max))</span>
+font-style: inherit;">xlim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(min, max))</span>
 <span id="cb2-30">}</span>
 <span id="cb2-31"></span>
 <span id="cb2-32"><span class="co" style="color: #5E5E5E;

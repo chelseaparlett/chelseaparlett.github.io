@@ -61,7 +61,7 @@ plot_binomial <- function(n, p, min, max) {
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank()
     ) + 
-    xlim(c(min,max))
+    coord_cartesian(xlim = c(min, max))
 }
 
 # example call
@@ -107,7 +107,7 @@ plot_binomial <- function(n, p, min, max, hl = 3) {
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank()
     ) + 
-    xlim(c(min,max))
+    coord_cartesian(xlim = c(min, max))
 }
 
 # example call
